@@ -19,6 +19,6 @@ jobs:
       uses: azure/arm-deploy@v1
       with:
         resourceGroupName: ${{ secrets.AZ_RG }}
-        template: ./template.bicep
+        template: ./.github/workflows/template.bicep
         parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
         failOnStdErr: false
