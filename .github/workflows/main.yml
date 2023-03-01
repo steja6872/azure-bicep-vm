@@ -14,12 +14,10 @@ jobs:
       with:
         creds: ${{ secrets.AZ_CRED }}
 
-      # Deploy Bicep file
-    - name: deploy
-      uses: azure/arm-deploy@v1
+    - name: azure cli script
+      uses: azure/CLI@v1
       with:
-        subscriptionId: ${{ secrets.AZ_ID }}
-        resourceGroupName: ${{ secrets.AZ_RG }}
-        template: ./.github/workflows/template.bicep
-        parameters: ./.github/workflows/parameters.json
-        failOnStdErr: false
+         azcliversion: 2.30.0
+         inlineScript: |
+                      az deployment group create --resource-group My_RG --template-file template.bicep --parameters parameters.json
+
