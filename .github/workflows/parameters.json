@@ -1,0 +1,92 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "networkInterfaceName": {
+            "value": "linuxvirtual37"
+        },
+        "networkSecurityGroupName": {
+            "value": "Linuxvirtual-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkName": {
+            "value": "Linuxvirtual-vnet"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.0.0.0/16"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "default",
+                    "properties": {
+                        "addressPrefix": "10.0.0.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "Linuxvirtual-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "pipDeleteOption": {
+            "value": "Detach"
+        },
+        "virtualMachineName": {
+            "value": "Linuxvirtual"
+        },
+        "virtualMachineComputerName": {
+            "value": "Linuxvirtual"
+        },
+        "virtualMachineRG": {
+            "value": "Res_Group"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "osDiskDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B1s"
+        },
+        "nicDeleteOption": {
+            "value": "Detach"
+        },
+        "adminUsername": {
+            "value": "Username"
+        },
+        "adminPassword": {
+            "value": null
+        }
+    }
+}
