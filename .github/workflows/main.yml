@@ -1,5 +1,6 @@
-on: [push]
 name: Azure ARM
+on: [push]
+
 jobs:
   build-and-deploy:
     runs-on: windows-latest
@@ -18,6 +19,6 @@ jobs:
       uses: azure/arm-deploy@v1
       with:
         resourceGroupName: ${{ secrets.AZ_RG }}
-        template: ./main.bicep
+        template: ./template.bicep
         parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
         failOnStdErr: false
