@@ -18,6 +18,7 @@ jobs:
     - name: deploy
       uses: azure/arm-deploy@v1
       with:
+        subscriptionId: ${{ secrets.AZ_ID }}
         resourceGroupName: ${{ secrets.AZ_RG }}
         template: ./.github/workflows/template.bicep
         parameters: ./.github/workflows/parameters.json
