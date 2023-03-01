@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
 
       # Checkout code
