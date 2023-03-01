@@ -19,5 +19,5 @@ jobs:
       with:
          azcliversion: 2.30.0
          inlineScript: |
-                      az deployment group create --resource-group My_RG --template-file template.bicep --parameters parameters.json
+                      az deployment group create --resource-group Res_Group --template-file template.bicep --parameters parameters.json
 
