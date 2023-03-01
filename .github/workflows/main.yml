@@ -1,0 +1,23 @@
+on: [push]
+name: Azure ARM
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+
+      # Checkout code
+    - uses: actions/checkout@main
+
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZ_CRED }}
+
+      # Deploy Bicep file
+    - name: deploy
+      uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: ${{ secrets.AZ_RG }}
+        template: ./main.bicep
+        parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+        failOnStdErr: false
